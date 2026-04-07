@@ -4,5 +4,10 @@
   ],
   "files.associations": {
     "wangler.json": "jsonc"
-  }
+  },
+  "github.copilot.chat.commitMessageGeneration.instructions": [
+    {
+      "file": ".github/copilot-commit-message-instructions.md"
+    }
+  ]
 }
