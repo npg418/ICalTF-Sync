@@ -1,3 +1,3 @@
-# ICalTF-Sync
+# I(Cal)TF-Sync
 
 自動更新される大学授業用のカレンダーを作ろう

@@ -4,13 +4,22 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "format": "biome check --write"
+    "format": "biome check --write",
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "start": "wrangler dev",
+    "test": "vitest",
+    "cf-typegen": "wrangler types"
+  },
+  "dependencies": {
+    "wrangler": "^4.80.0"
   },
   "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.12.4",
+    "@types/node": "^25.5.2",
+    "typescript": "^5.5.2",
+    "vitest": "~3.2.0",
     "@biomejs/biome": "^2.4.10",
     "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
   }
 }
