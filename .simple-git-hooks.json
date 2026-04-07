@@ -1,3 +1,4 @@
 {
-  "commit-msg": "bunx commitlint --edit $1"
+  "commit-msg": "bunx commitlint --edit $1",
+  "format": "bunx biome check --write"
 }
