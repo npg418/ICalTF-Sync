@@ -1,5 +1,7 @@
 {
-  "cSpell.words": ["icaltf"],
+  "cSpell.words": [
+    "icaltf"
+  ],
   "files.associations": {
     "wangler.json": "jsonc"
   }
