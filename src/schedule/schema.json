@@ -1,0 +1,397 @@
+
+  {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "spring",
+    "autumn"
+  ],
+  "properties": {
+    "spring": {
+      "type": "object",
+      "required": [
+        "A",
+        "B",
+        "C"
+      ],
+      "properties": {
+        "A": {
+          "type": "object",
+          "required": [
+            "start",
+            "end",
+            "backupDays"
+          ],
+          "properties": {
+            "start": {
+              "type": "string",
+              "format": "date"
+            },
+            "end": {
+              "type": "string",
+              "format": "date"
+            },
+            "backupDays": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "holidays": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "dowOverrides": {
+              "type": "object",
+              "patternProperties": {
+                "^.*$": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "const": "Monday"
+                    },
+                    {
+                      "type": "string",
+                      "const": "Tuesday"
+                    },
+                    {
+                      "type": "string",
+                      "const": "Wednesday"
+                    },
+                    {
+                      "type": "string",
+                      "const": "Thursday"
+                    },
+                    {
+                      "type": "string",
+                      "const": "Friday"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "B": {
+          "type": "object",
+          "required": [
+            "start",
+            "end",
+            "backupDays"
+          ],
+          "properties": {
+            "start": {
+              "type": "string",
+              "format": "date"
+            },
+            "end": {
+              "type": "string",
+              "format": "date"
+            },
+            "backupDays": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "holidays": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "dowOverrides": {
+              "type": "object",
+              "patternProperties": {
+                "^.*$": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "const": "Monday"
+                    },
+                    {
+                      "type": "string",
+                      "const": "Tuesday"
+                    },
+                    {
+                      "type": "string",
+                      "const": "Wednesday"
+                    },
+                    {
+                      "type": "string",
+                      "const": "Thursday"
+                    },
+                    {
+                      "type": "string",
+                      "const": "Friday"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "C": {
+          "type": "object",
+          "required": [
+            "start",
+            "end",
+            "backupDays"
+          ],
+          "properties": {
+            "start": {
+              "type": "string",
+              "format": "date"
+            },
+            "end": {
+              "type": "string",
+              "format": "date"
+            },
+            "backupDays": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "holidays": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "dowOverrides": {
+              "type": "object",
+              "patternProperties": {
+                "^.*$": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "const": "Monday"
+                    },
+                    {
+                      "type": "string",
+                      "const": "Tuesday"
+                    },
+                    {
+                      "type": "string",
+                      "const": "Wednesday"
+                    },
+                    {
+                      "type": "string",
+                      "const": "Thursday"
+                    },
+                    {
+                      "type": "string",
+                      "const": "Friday"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "autumn": {
+      "type": "object",
+      "required": [
+        "A",
+        "B",
+        "C"
+      ],
+      "properties": {
+        "A": {
+          "type": "object",
+          "required": [
+            "start",
+            "end",
+            "backupDays"
+          ],
+          "properties": {
+            "start": {
+              "type": "string",
+              "format": "date"
+            },
+            "end": {
+              "type": "string",
+              "format": "date"
+            },
+            "backupDays": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "holidays": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "dowOverrides": {
+              "type": "object",
+              "patternProperties": {
+                "^.*$": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "const": "Monday"
+                    },
+                    {
+                      "type": "string",
+                      "const": "Tuesday"
+                    },
+                    {
+                      "type": "string",
+                      "const": "Wednesday"
+                    },
+                    {
+                      "type": "string",
+                      "const": "Thursday"
+                    },
+                    {
+                      "type": "string",
+                      "const": "Friday"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "B": {
+          "type": "object",
+          "required": [
+            "start",
+            "end",
+            "backupDays"
+          ],
+          "properties": {
+            "start": {
+              "type": "string",
+              "format": "date"
+            },
+            "end": {
+              "type": "string",
+              "format": "date"
+            },
+            "backupDays": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "holidays": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "dowOverrides": {
+              "type": "object",
+              "patternProperties": {
+                "^.*$": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "const": "Monday"
+                    },
+                    {
+                      "type": "string",
+                      "const": "Tuesday"
+                    },
+                    {
+                      "type": "string",
+                      "const": "Wednesday"
+                    },
+                    {
+                      "type": "string",
+                      "const": "Thursday"
+                    },
+                    {
+                      "type": "string",
+                      "const": "Friday"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "C": {
+          "type": "object",
+          "required": [
+            "start",
+            "end",
+            "backupDays"
+          ],
+          "properties": {
+            "start": {
+              "type": "string",
+              "format": "date"
+            },
+            "end": {
+              "type": "string",
+              "format": "date"
+            },
+            "backupDays": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "holidays": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "date"
+              }
+            },
+            "dowOverrides": {
+              "type": "object",
+              "patternProperties": {
+                "^.*$": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "const": "Monday"
+                    },
+                    {
+                      "type": "string",
+                      "const": "Tuesday"
+                    },
+                    {
+                      "type": "string",
+                      "const": "Wednesday"
+                    },
+                    {
+                      "type": "string",
+                      "const": "Thursday"
+                    },
+                    {
+                      "type": "string",
+                      "const": "Friday"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

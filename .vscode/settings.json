@@ -1,5 +1,8 @@
 {
-  "cSpell.words": ["icaltf"],
+  "cSpell.words": [
+    "icaltf",
+    "typebox"
+  ],
   "files.associations": {
     "wangler.json": "jsonc"
   },
@@ -7,5 +10,8 @@
     {
       "file": ".github/copilot-commit-message-instructions.md"
     }
-  ]
+  ],
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  }
 }
