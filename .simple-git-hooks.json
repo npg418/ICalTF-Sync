@@ -1,0 +1,3 @@
+{
+  "commit-msg": "bunx commitlint --edit $1"
+}

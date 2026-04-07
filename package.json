@@ -9,7 +9,8 @@
     "dev": "wrangler dev",
     "start": "wrangler dev",
     "test": "vitest",
-    "cf-typegen": "wrangler types"
+    "cf-typegen": "wrangler types",
+    "prepare": "simple-git-hooks"
   },
   "dependencies": {
     "wrangler": "^4.80.0"
@@ -20,6 +21,9 @@
     "typescript": "^5.5.2",
     "vitest": "~3.2.0",
     "@biomejs/biome": "^2.4.10",
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "simple-git-hooks": "^2.13.1"
   }
 }
