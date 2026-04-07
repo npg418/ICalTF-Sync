@@ -2,6 +2,13 @@
 
 自動更新される大学授業用のカレンダーを作ろう
 
+## 使うツールとか
+
+- Bun
+- TypeScript
+- Cloudflare Workers
+- Biome
+
 ## Commit Message Rules
 
 このリポジトリは Conventional Commits を採用しています。
