@@ -1,15 +1,17 @@
-# Cloudflare Workers
+# Instruction for coding agents
+
+## Cloudflare Workers
 
 STOP. Your knowledge of Cloudflare Workers APIs and limits may be outdated. Always retrieve current documentation before any Workers, KV, R2, D1, Durable Objects, Queues, Vectorize, AI, or Agents SDK task.
 
-## Docs
+### Docs
 
 - <https://developers.cloudflare.com/workers/>
 - MCP: `https://docs.mcp.cloudflare.com/mcp`
 
 For all limits and quotas, retrieve from the product's `/platform/limits/` page. eg. `/workers/platform/limits`
 
-## Commands
+### Commands
 
 | Command | Purpose |
 | ------- | ------- |
@@ -19,16 +21,20 @@ For all limits and quotas, retrieve from the product's `/platform/limits/` page.
 
 Run `wrangler types` after changing bindings in wrangler.jsonc.
 
-## Node.js Compatibility
+### Node.js Compatibility
 
 <https://developers.cloudflare.com/workers/runtime-apis/nodejs/>
 
-## Errors
+### Errors
 
 - **Error 1102** (CPU/Memory exceeded): Retrieve limits from `/workers/platform/limits/`
 - **All errors**: <https://developers.cloudflare.com/workers/observability/errors/>
 
-## Product Docs
+### Product Docs
 
 Retrieve API references and limits from:
 `/kv/` · `/r2/` · `/d1/` · `/durable-objects/` · `/queues/` · `/vectorize/` · `/workers-ai/` · `/agents/`
+
+## Package managers
+
+Use `bun` for all package management tasks. Do not use `npm`, `yarn` or `pnpm`.

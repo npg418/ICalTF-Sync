@@ -10,6 +10,8 @@
     "start": "wrangler dev",
     "test": "vitest",
     "cf-typegen": "wrangler types",
+    "gen:schema": "bun run scripts/generate-schema.ts",
+    "gen:schedules": "bun run scripts/generate-schedules.ts",
     "prepare": "simple-git-hooks"
   },
   "dependencies": {
