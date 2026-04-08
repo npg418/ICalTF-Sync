@@ -1,9 +1,5 @@
 {
-  "cSpell.words": [
-    "Dwldtype",
-    "icaltf",
-    "typebox"
-  ],
+  "cSpell.words": ["Dwldtype", "icaltf", "typebox"],
   "files.associations": {
     "wangler.json": "jsonc"
   },

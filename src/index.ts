@@ -1,6 +1,8 @@
 import { SCHEDULE_DATA, SUPPORTED_YEARS } from "./schedule/schedules";
 
-function isSupportedYear(year: string): year is (typeof SUPPORTED_YEARS)[number] {
+function isSupportedYear(
+  year: string,
+): year is (typeof SUPPORTED_YEARS)[number] {
   return SUPPORTED_YEARS.includes(year as (typeof SUPPORTED_YEARS)[number]);
 }
 
@@ -20,7 +22,7 @@ export default {
     if (!isSupportedYear(year)) {
       return new Response(
         `対応していない年です。対応している年: ${SUPPORTED_YEARS.join(", ")}`,
-        { status: 400 }
+        { status: 400 },
       );
     }
 

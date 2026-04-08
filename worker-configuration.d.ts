@@ -8,7 +8,9 @@ declare namespace Cloudflare {
   }
   type Env = {};
 }
-interface Env extends Cloudflare.Env {}
+interface Env extends Cloudflare.Env {
+  COURSE_DATA: KVNamespace;
+}
 
 // Begin runtime types
 /*! *****************************************************************************

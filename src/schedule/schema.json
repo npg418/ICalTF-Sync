@@ -1,27 +1,15 @@
-
-  {
+{
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
-  "required": [
-    "spring",
-    "autumn"
-  ],
+  "required": ["spring", "autumn"],
   "properties": {
     "spring": {
       "type": "object",
-      "required": [
-        "A",
-        "B",
-        "C"
-      ],
+      "required": ["A", "B", "C"],
       "properties": {
         "A": {
           "type": "object",
-          "required": [
-            "start",
-            "end",
-            "backupDays"
-          ],
+          "required": ["start", "end", "backupDays"],
           "properties": {
             "start": {
               "type": "string",
@@ -78,11 +66,7 @@
         },
         "B": {
           "type": "object",
-          "required": [
-            "start",
-            "end",
-            "backupDays"
-          ],
+          "required": ["start", "end", "backupDays"],
           "properties": {
             "start": {
               "type": "string",
@@ -139,11 +123,7 @@
         },
         "C": {
           "type": "object",
-          "required": [
-            "start",
-            "end",
-            "backupDays"
-          ],
+          "required": ["start", "end", "backupDays"],
           "properties": {
             "start": {
               "type": "string",
@@ -202,19 +182,11 @@
     },
     "autumn": {
       "type": "object",
-      "required": [
-        "A",
-        "B",
-        "C"
-      ],
+      "required": ["A", "B", "C"],
       "properties": {
         "A": {
           "type": "object",
-          "required": [
-            "start",
-            "end",
-            "backupDays"
-          ],
+          "required": ["start", "end", "backupDays"],
           "properties": {
             "start": {
               "type": "string",
@@ -271,11 +243,7 @@
         },
         "B": {
           "type": "object",
-          "required": [
-            "start",
-            "end",
-            "backupDays"
-          ],
+          "required": ["start", "end", "backupDays"],
           "properties": {
             "start": {
               "type": "string",
@@ -332,11 +300,7 @@
         },
         "C": {
           "type": "object",
-          "required": [
-            "start",
-            "end",
-            "backupDays"
-          ],
+          "required": ["start", "end", "backupDays"],
           "properties": {
             "start": {
               "type": "string",
