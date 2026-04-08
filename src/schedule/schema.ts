@@ -1,14 +1,5 @@
 import { type Static, Type } from "typebox";
-
-const Weekdays = Type.Union([
-  Type.Literal("Monday"),
-  Type.Literal("Tuesday"),
-  Type.Literal("Wednesday"),
-  Type.Literal("Thursday"),
-  Type.Literal("Friday"),
-]);
-
-const ISODateString = Type.String({ format: "date" });
+import { ISODateString, Weekdays } from "../util";
 
 const ModuleSchema = Type.Object({
   start: ISODateString,
