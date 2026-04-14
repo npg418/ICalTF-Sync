@@ -13,29 +13,35 @@ const SemesterModule = Type.Union([
   Type.Literal("C"),
 ]);
 
-const WeeklySchedule = Type.Record(
-  Weekdays,
-  Type.Array(
-    Type.Union([
-      Type.Literal(1),
-      Type.Literal(2),
-      Type.Literal(3),
-      Type.Literal(4),
-      Type.Literal(5),
-      Type.Literal(6),
-    ]),
+const WeeklySchedule = Type.Partial(
+  Type.Record(
+    Weekdays,
+    Type.Array(
+      Type.Union([
+        Type.Literal(1),
+        Type.Literal(2),
+        Type.Literal(3),
+        Type.Literal(4),
+        Type.Literal(5),
+        Type.Literal(6),
+      ]),
+    ),
+    { minProperties: 1 },
   ),
 );
 
 const PeriodData = Type.Object({
   semester: Type.Union([
-    Type.Record(
-      SemesterSeason,
-      Type.Array(SemesterModule, {
-        minItems: 1,
-        maxItems: 3,
-        uniqueItems: true,
-      }),
+    Type.Partial(
+      Type.Record(
+        SemesterSeason,
+        Type.Array(SemesterModule, {
+          minItems: 1,
+          maxItems: 3,
+          uniqueItems: true,
+        }),
+        { minProperties: 1 },
+      ),
     ),
     Type.Literal("all-year"),
   ]),
@@ -76,6 +82,7 @@ async function* fetchCourses(
     method: "POST",
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
+      Cookie: "kdb-common=jpn%2C200%2C0",
     },
     body: new URLSearchParams({
       action: "downloadList",
@@ -152,11 +159,11 @@ function parsePeriods(semester: string, period: string): Array<unknown> {
 }
 
 const dayMap: Record<string, Weekdays> = {
-  月: "Monday",
-  火: "Tuesday",
-  水: "Wednesday",
-  木: "Thursday",
-  金: "Friday",
+  月: "monday",
+  火: "tuesday",
+  水: "wednesday",
+  木: "thursday",
+  金: "friday",
 };
 
 function parsePeriod(periodStr: string): unknown {

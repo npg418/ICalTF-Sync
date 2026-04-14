@@ -1,3 +1,4 @@
+import { updateCourseDataCache } from "./courses";
 import { SCHEDULE_DATA, SUPPORTED_YEARS } from "./schedule/schedules";
 
 function isSupportedYear(
@@ -7,7 +8,7 @@ function isSupportedYear(
 }
 
 export default {
-  async fetch(request, _env, _ctx): Promise<Response> {
+  async fetch(request, env, _ctx): Promise<Response> {
     const url = new URL(request.url);
     const params = url.searchParams;
     const classIds = params.get("classIds");
@@ -27,8 +28,14 @@ export default {
     }
 
     const data = SCHEDULE_DATA[year];
-    return new Response(JSON.stringify(data), {
+    return new Response(await env.COURSE_DATA.get(classIds) ?? "Course data not found", {
       headers: { "Content-Type": "application/json" },
     });
   },
+  async scheduled(_controller, env, _ctx) {
+    const year = new Date().getFullYear();
+    if (isSupportedYear(year.toString())) {
+      await updateCourseDataCache(year, env);
+    }
+  }
 } satisfies ExportedHandler<Env>;

@@ -1,11 +1,11 @@
 import { Type } from "typebox";
 
 export const Weekdays = Type.Union([
-  Type.Literal("Monday"),
-  Type.Literal("Tuesday"),
-  Type.Literal("Wednesday"),
-  Type.Literal("Thursday"),
-  Type.Literal("Friday"),
+  Type.Literal("monday"),
+  Type.Literal("tuesday"),
+  Type.Literal("wednesday"),
+  Type.Literal("thursday"),
+  Type.Literal("friday"),
 ]);
 export const ISODateString = Type.String({ format: "date" });
 
