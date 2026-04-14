@@ -28,14 +28,17 @@ export default {
     }
 
     const data = SCHEDULE_DATA[year];
-    return new Response(await env.COURSE_DATA.get(classIds) ?? "Course data not found", {
-      headers: { "Content-Type": "application/json" },
-    });
+    return new Response(
+      (await env.COURSE_DATA.get(classIds)) ?? "Course data not found",
+      {
+        headers: { "Content-Type": "application/json" },
+      },
+    );
   },
   async scheduled(_controller, env, _ctx) {
     const year = new Date().getFullYear();
     if (isSupportedYear(year.toString())) {
       await updateCourseDataCache(year, env);
     }
-  }
+  },
 } satisfies ExportedHandler<Env>;
