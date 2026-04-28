@@ -1,6 +1,6 @@
 import { mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
-import { ScheduleSchema } from "../src/schedule/schema";
+import { ScheduleSchema } from "../src/schema/schedule";
 
 const outPath = resolve("src/schedule/schema.json");
 

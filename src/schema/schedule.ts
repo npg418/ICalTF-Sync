@@ -1,5 +1,5 @@
 import { type Static, Type } from "typebox";
-import { ISODateString, Weekdays } from "../util";
+import { ISODateString, Modules, Seasons, Weekdays } from "./util";
 
 const ModuleSchema = Type.Object({
   start: ISODateString,
@@ -9,15 +9,8 @@ const ModuleSchema = Type.Object({
   dowOverrides: Type.Optional(Type.Record(ISODateString, Weekdays)),
 });
 
-const ABCModulesSchema = Type.Object({
-  A: ModuleSchema,
-  B: ModuleSchema,
-  C: ModuleSchema,
-});
+const ABCModulesSchema = Type.Record(Modules, ModuleSchema);
 
-export const ScheduleSchema = Type.Object({
-  spring: ABCModulesSchema,
-  autumn: ABCModulesSchema,
-});
+export const ScheduleSchema = Type.Record(Seasons, ABCModulesSchema);
 
 export type Schedule = Static<typeof ScheduleSchema>;

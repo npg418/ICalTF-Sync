@@ -1,59 +1,7 @@
-import { Type } from "typebox";
 import Schema from "typebox/schema";
 import { parse } from "web-csv-toolbox";
-import { Weekdays } from "./util";
-
-const SemesterSeason = Type.Union([
-  Type.Literal("spring"),
-  Type.Literal("fall"),
-]);
-const SemesterModule = Type.Union([
-  Type.Literal("A"),
-  Type.Literal("B"),
-  Type.Literal("C"),
-]);
-
-const WeeklySchedule = Type.Partial(
-  Type.Record(
-    Weekdays,
-    Type.Array(
-      Type.Union([
-        Type.Literal(1),
-        Type.Literal(2),
-        Type.Literal(3),
-        Type.Literal(4),
-        Type.Literal(5),
-        Type.Literal(6),
-      ]),
-      { minItems: 1, uniqueItems: true },
-    ),
-    { minProperties: 1 },
-  ),
-);
-
-const PeriodData = Type.Object({
-  semester: Type.Union([
-    Type.Partial(
-      Type.Record(
-        SemesterSeason,
-        Type.Array(SemesterModule, {
-          minItems: 1,
-          maxItems: 3,
-          uniqueItems: true,
-        }),
-        { minProperties: 1 },
-      ),
-    ),
-    Type.Literal("all-year"),
-  ]),
-  period: WeeklySchedule,
-});
-
-const CourseData = Type.Object({
-  id: Type.String(),
-  name: Type.String(),
-  periods: Type.Array(PeriodData, { minItems: 1 }),
-});
+import { type CourseData, CourseDataSchema } from "./schema/course";
+import type { Weekdays } from "./schema/util";
 
 const header = [
   "id",
@@ -78,7 +26,7 @@ const header = [
 
 async function* fetchCourses(
   year: number,
-): AsyncGenerator<Type.Static<typeof CourseData> | string> {
+): AsyncGenerator<CourseData | string> {
   const response = await fetch(`https://kdb.tsukuba.ac.jp/`, {
     method: "POST",
     headers: {
@@ -106,6 +54,7 @@ async function* fetchCourses(
   const charset =
     response.headers.get("Content-Type")?.match(/charset=([^;]+)/)?.[1] ||
     "shift_jis";
+  const CompiledSchema = Schema.Compile(CourseDataSchema);
 
   for await (const record of parse(response.body, { charset, header })) {
     const { id, name, semester, period } = record;
@@ -118,7 +67,7 @@ async function* fetchCourses(
         name,
         periods: parsePeriods(semester, period),
       };
-      yield Schema.Compile(CourseData).Parse(courseData);
+      yield CompiledSchema.Parse(courseData);
     } catch (_) {
       yield id;
     }

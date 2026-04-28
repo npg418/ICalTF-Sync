@@ -11,7 +11,10 @@ export default {
   async fetch(request, env, _ctx): Promise<Response> {
     const url = new URL(request.url);
     const params = url.searchParams;
-    const classIds = params.get("classIds");
+    const classIds = params
+      .get("classIds")
+      ?.split(",")
+      .map((id) => id.trim());
     const year = params.get("year") ?? "2026";
 
     if (!classIds) {
@@ -27,13 +30,11 @@ export default {
       );
     }
 
-    const data = SCHEDULE_DATA[year];
-    return new Response(
-      (await env.COURSE_DATA.get(classIds)) ?? "Course data not found",
-      {
-        headers: { "Content-Type": "application/json" },
-      },
-    );
+    const schedule = SCHEDULE_DATA[year];
+    const courses = await env.COURSE_DATA.get(classIds);
+    return new Response(JSON.stringify(courses), {
+      headers: { "Content-Type": "application/json" },
+    });
   },
   async scheduled(_controller, env, _ctx) {
     const year = new Date().getFullYear();
