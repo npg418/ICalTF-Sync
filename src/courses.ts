@@ -25,6 +25,7 @@ const WeeklySchedule = Type.Partial(
         Type.Literal(5),
         Type.Literal(6),
       ]),
+      { minItems: 1, uniqueItems: true },
     ),
     { minProperties: 1 },
   ),
@@ -51,7 +52,7 @@ const PeriodData = Type.Object({
 const CourseData = Type.Object({
   id: Type.String(),
   name: Type.String(),
-  period: Type.Array(PeriodData, { minItems: 1 }),
+  periods: Type.Array(PeriodData, { minItems: 1 }),
 });
 
 const header = [
@@ -88,6 +89,8 @@ async function* fetchCourses(
       action: "downloadList",
       hdnFy: year.toString(),
       cmbDwldtype: "csv",
+      hdnReqName:
+        "%E5%AD%A6%E7%BE%A4%E9%96%8B%E8%A8%AD%E6%8E%88%E6%A5%AD%E7%A7%91%E7%9B%AE%E4%B8%80%E8%A6%A7",
     }),
   });
 
@@ -113,7 +116,7 @@ async function* fetchCourses(
       const courseData = {
         id,
         name,
-        period: parsePeriods(semester, period),
+        periods: parsePeriods(semester, period),
       };
       yield Schema.Compile(CourseData).Parse(courseData);
     } catch (_) {
